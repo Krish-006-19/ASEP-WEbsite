@@ -1,0 +1,150 @@
+.X{
+    margin:0;
+}
+.bottom{
+    margin-top: 10px;
+    margin-bottom: 0px;
+}
+.b1{
+display: flex;
+flex-direction: row;
+justify-content: space-around;
+align-items: center;
+margin-top: 10px;
+}
+.b11{
+background-color: lightblue;
+padding-left: 30px;
+padding-right:30px ;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+.b111{
+
+}
+.b1111{
+    height:150px;
+    width:150px;
+    margin-bottom: 10px;
+    border-radius: 500px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.b112{
+
+}
+.b1121{
+padding-left: 12px;
+padding-right:12px ;
+padding-top: 5px;
+padding-bottom:5px ;
+margin-left: 15px;
+background-color: #ff7722;
+border: none;
+border-radius: 7px;
+
+}
+.b1121:hover{
+    cursor:pointer;
+}
+.b11211{
+    color: white;
+}
+.b12{
+background-color: lightpink;
+padding-left: 35px;
+padding-right:35px ;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+.b121{
+
+}
+.b1211{
+height:150px;
+width:150px;
+margin-bottom: 10px;
+border-radius: 500px;
+}
+.b122{
+
+}
+.b1221{
+    padding-left: 12px;
+    padding-right:12px ;
+    padding-top: 5px;
+    padding-bottom:5px ;
+    margin-left: 15px;
+    border:none;
+    border-radius: 7px;
+}
+.b1221:hover{
+    cursor:pointer;
+}
+.b12211{
+    color: #000080 ;
+}
+.b13{
+background-color: lightcoral;
+padding-left: 35px;
+padding-right:35px ;
+padding-top: 15px;
+padding-bottom: 15px;
+}
+.b131{
+
+}
+.b1311{
+    height:150px;
+    width:150px;
+    margin-bottom: 10px;
+    border-radius: 500px;
+}
+.b132{
+
+}
+.b1321{
+    border:none;
+    padding-left: 12px;
+    padding-right:12px ;
+    padding-top: 5px;
+    padding-bottom:5px ;
+    margin-left: 15px;
+    background-color: #06402B;
+    border-radius: 7px;
+}
+.b1321:hover{
+    cursor:pointer;
+}
+.b13211{
+    color: white;
+}
+.b2{
+background-color:  #f5f5f5;
+}
+.b21{
+display:flex;
+justify-content: center;
+margin-top: 10px;
+}
+.b211{
+margin-right: 5px;
+}
+.b2111{
+height: 30px;
+width: 30px;
+}
+.b212{
+    margin-right: 5px;
+}
+.b2121{
+height: 30px;
+width: 30px;
+}
+.b213{
+    margin-right: 5px;
+}
+.b2131{
+height: 30px;
+width: 30px;
+}

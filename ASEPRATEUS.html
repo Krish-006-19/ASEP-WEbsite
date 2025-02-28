@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="ASEP.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate Us - Government Issues Portal</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: auto;
+        }
+        .stars {
+            display: flex;
+            justify-content: center;
+            flex-direction: row-reverse;
+        }
+        .stars input {
+            display: none;
+        }
+        .stars label {
+            font-size: 30px;
+            color: gray;
+            cursor: pointer;
+        }
+        .stars input:checked ~ label,
+        .stars label:hover,
+        .stars label:hover ~ label {
+            color: purple;
+        }
+        textarea {
+            width: 100%;
+            height: 120px;
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: purple;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .feedback-section {
+            margin-top: 20px;
+            text-align: left;
+            max-width: 600px;
+            margin: auto;
+        }
+        .feedback-item {
+            background: #f8f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 10px;
+            border-left: 5px solid purple;
+        }
+    </style>
+    <script>
+        function submitFeedback(event) {
+            event.preventDefault();
+            const rating = document.querySelector('input[name="rating"]:checked')?.value;
+            const feedbackText = document.getElementById("feedback-text").value;
+            if (rating && feedbackText) {
+                const feedbackContainer = document.getElementById("feedback-container");
+                const feedbackItem = document.createElement("div");
+                feedbackItem.classList.add("feedback-item");
+                feedbackItem.innerHTML = `<strong>Rating: ${rating} Stars</strong><p>${feedbackText}</p>`;
+                feedbackContainer.appendChild(feedbackItem);
+                saveFeedback(rating, feedbackText);
+                document.getElementById("feedback-form").reset();
+            } else {
+                alert("Please provide both a rating and feedback.");
+            }
+        }
+
+        function saveFeedback(rating, feedback) {
+            let feedbackList = JSON.parse(localStorage.getItem("feedbackList")) || [];
+            feedbackList.push({ rating, feedback });
+            localStorage.setItem("feedbackList", JSON.stringify(feedbackList));
+        }
+
+        function loadFeedback() {
+            const feedbackContainer = document.getElementById("feedback-container");
+            let feedbackList = JSON.parse(localStorage.getItem("feedbackList")) || [];
+            feedbackList.forEach(item => {
+                const feedbackItem = document.createElement("div");
+                feedbackItem.classList.add("feedback-item");
+                feedbackItem.innerHTML = `<strong>Rating: ${item.rating} Stars</strong><p>${item.feedback}</p>`;
+                feedbackContainer.appendChild(feedbackItem);
+            });
+        }
+        
+        document.addEventListener("DOMContentLoaded", loadFeedback);
+    </script>
+</head>
+<body>
+    <div class="header">
+        <p align="center" class="s11">A modern website for unsolved government greviances & Public greviances</p>
+    <div class="d">
+    <div class="d1"><img class="d11" src="ISSUEPOST.png"></div>
+    <div class="d2">
+        <div class="f">
+        <div class="d21"><p class="d211">ISSUEPOST</p></div>
+        <div class="d22"><p> </p></div>
+    </div>
+        <div class="d23"><p class="d221"> Unseeking Public Grievance And Monitoring System</p></div>
+    </div>
+    </div>
+        <div class="t">
+        <div class="t1"><a href="ASEPAPPEAL.html"><button class="t45"><p>Appeal Status</p></button></a></div>
+
+        <div class="t3"><a href="ASEPRATEUS.html"><button class="t31"><p>Rate Us</p></button></a></div>
+        <div class="t5"><a href="communitysupport.html"><button class="t51"><p class="t511">Support</p></button></a></div>
+        <div class="t4"><a href="ASEPSIGNIN.html"><button class="t41">Sign In</button></a></div>
+    </div>
+</div>
+
+    <div class="container">
+        <h2>Rate Our Service</h2>
+        <form id="feedback-form" onsubmit="submitFeedback(event)">
+            <div class="stars">
+                <input type="radio" id="star5" name="rating" value="5"><label for="star5">&#9733;</label>
+                <input type="radio" id="star4" name="rating" value="4"><label for="star4">&#9733;</label>
+                <input type="radio" id="star3" name="rating" value="3"><label for="star3">&#9733;</label>
+                <input type="radio" id="star2" name="rating" value="2"><label for="star2">&#9733;</label>
+                <input type="radio" id="star1" name="rating" value="1"><label for="star1">&#9733;</label>
+            </div>
+            <textarea id="feedback-text" name="feedback" placeholder="Tell us about your experience..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <div class="feedback-section">
+        <h3>User Feedback</h3>
+        <div id="feedback-container"></div>
+    </div>
+</body>
+</html>

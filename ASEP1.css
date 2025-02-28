@@ -1,0 +1,174 @@
+option{
+    background-color: white;
+    color: black;
+}
+.middle{
+padding-bottom: 10px;
+}
+.m1{
+
+}
+.m11{
+    height: 300px;
+    width: 100%;
+}
+.m21{
+    background-color: #6F0047;
+    color:white ;
+    font-size: 16px;
+    font-weight: bold;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.m3{
+    display: flex;
+    font-size: 20px;
+}
+.m31{
+    font-size: 30px;
+
+}
+.m31{
+
+}
+.m311{
+
+}
+.m3111{
+font-weight: bold;
+font-size: 22px;
+}
+.m312{
+
+}
+.m3121{
+font-size: 14px;
+line-height: 25px;
+}
+.m313{
+
+}
+.m3131{
+font-size: 14px;
+line-height: 25px;
+}
+.m32{
+
+}
+.m321{
+
+}
+.m3211{
+font-weight: bold;
+font-size: 22px;
+}
+.m322{
+
+    border: solid;
+    border-color: #e5e5e5;
+    border-width: 10px;
+}
+.m3221{
+    display: flex;
+border: solid;
+border-color: #e5e5e5;
+border-width: 5px;
+}
+.m32211{
+    margin-right: 5px;
+    background-color: #e5e5e5;
+    padding-left: 10px;
+    padding-right: 32px;
+    border: none;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.mi1{
+font-size: 35px;
+font-weight: bold;
+color: #6F0047;
+}
+.mi2{
+font-size: 14px;
+font-weight: 100px;
+}
+.m32212{
+
+}
+.m32213{
+
+}
+.m3222{
+    display: flex;
+    
+border: solid;
+border-color: #e5e5e5;
+border-width: 5px;
+}
+.m32221{
+margin-right: 5px;
+background-color: #e5e5e5;
+padding-left: 10px;
+padding-right: 10px;
+border: none;
+border-left: 2px solid white;
+border-top: 2px solid white;
+border-bottom: 2px solid white;
+}
+.mx1{
+font-size: 35px;
+color: #6F0047;
+}
+.mx2{
+font-size: 14px;
+}
+.m32222{
+
+}
+.m32223{
+
+} 
+.ft{
+color: black;
+}
+.ft1{
+color: #0038b5;
+font-size: 16px;
+font-weight: bold;
+}
+.ft2{
+font-size: 14px;
+}
+.ft3{
+    font-size: 14px;
+}
+.ft4{
+    font-size: 14px;
+}
+.ft5{
+    font-size: 14px;
+}
+.ft6{
+    font-size: 14px;
+}
+.e{
+
+}
+.e1{
+font-weight: bold;
+font-size: 16px;
+margin-bottom: 0px;
+}
+.ed{
+
+}
+.ed1{
+    font-size: 16px;
+}
+.edx{
+
+}
+.edx1{
+    font-size: 16px;
+}

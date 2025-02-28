@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community Support - IssuePost</title>
+    <link href="ASEP.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #f4f4f4;
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            padding-bottom: 30px; ;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 2.5rem;
+            color: #007bff;
+            text-transform: uppercase;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .issue-card {
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.3s ease-in-out;
+        }
+        .issue-card:hover {
+            transform: scale(1.02);
+        }
+        .support-section {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btn-support, .btn-comment {
+            border-radius: 50px;
+            padding: 8px 20px;
+        }
+        .comments {
+            margin-top: 10px;
+        }
+        .comment-box {
+            margin-top: 10px;
+            border-radius: 10px;
+            padding: 10px;
+            background: #e9ecef;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <p align="center" class="s11">A modern website for unsolved government greviances & Public greviances</p>
+    <div class="d">
+    <div class="d1"><img class="d11" src="ISSUEPOST.png"></div>
+    <div class="d2">
+        <div class="f">
+        <div class="d21"><p class="d211">ISSUEPOST</p></div>
+        <div class="d22"><p> </p></div>
+    </div>
+        <div class="d23"><p class="d221"> Unseeking Public Grievance And Monitoring System</p></div>
+    </div>
+    </div>
+        <div class="t">
+        <div class="t1"><a href="ASEPAPPEAL.html"><button class="t45"><p>Appeal Status</p></button></a></div>
+
+        <div class="t3"><a href="ASEPRATEUS.html"><button class="t31"><p>Rate Us</p></button></a></div>
+        <div class="t5"><a href="communitysupport.html"><button class="t51"><p class="t511">Support</p></button></a></div>
+        <div class="t4"><a href="ASEPSIGNIN.html"><button class="t41">Sign In</button></a></div>
+    </div>
+</div>
+
+    <div class="container">
+        <h2> <b>Community Support</b></h2>
+        <div id="support-list"></div>
+    </div>
+
+    <div style="display: flex;justify-content: space-evenly;">
+        <div class="w-64 bg-white shadow-lg rounded-lg p-4">
+            <h2 class="text-xl font-bold">Statistics</h2>
+            <div style="display: flex;justify-content: center;"><a href="statics.html"><button class="btn-primary">Info.</button></a></div>
+        </div>
+        <div class="w-64 bg-white shadow-lg rounded-lg p-4">
+            <h2 class="text-xl font-bold">Raised Issues</h2>
+            <div style="display: flex;justify-content: center;"><a href="raisedissues.html"><button class="btn-primary">Info.</button></a></div>
+        </div>
+        <div class="w-64 bg-white shadow-lg rounded-lg p-4">
+            <h2 class="text-xl font-bold">Leadership</h2>
+            <div style="display: flex;justify-content: center;"><a href="leadership.html"><button class="btn-primary">Info.</button></a></div>
+        </div>
+    </div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        const issues = [
+            { title: 'Road Repair Needed', description: 'Potholes on 5th Avenue need urgent fixing.', support: 12, comments: ['Totally agree!', 'This has been an issue for months.'] },
+            { title: 'Street Lights Not Working', description: 'Streetlights in our area are out.', support: 8, comments: ['It gets very unsafe at night.', 'Needs urgent attention.'] } ,
+            { title: 'Garbage not collected on time ', description: 'Garbage is not collected on time it is always delayed by 1-2 weeks', support: 10, comments: ['Increases the chances of illness.', 'Needs urgent attention.'] }
+        ];
+
+        function loadSupportList() {
+            $('#support-list').html('');
+            issues.forEach((issue, index) => {
+                $('#support-list').append(`
+                    <div class="issue-card">
+                        <h5>${issue.title}</h5>
+                        <p>${issue.description}</p>
+                        <div class="support-section">
+                            <button class="btn btn-primary btn-support" onclick="addSupport(${index})">Support (${issue.support})</button>
+                            <button class="btn btn-success btn-comment" onclick="showComments(${index})">Comments (${issue.comments.length})</button>
+                        </div>
+                        <div id="comments-${index}" class="comments" style="display:none;"></div>
+                    </div>
+                `);
+            });
+        }
+
+        function addSupport(index) {
+            issues[index].support++;
+            loadSupportList();
+        }
+
+        function showComments(index) {
+            const commentsDiv = $(`#comments-${index}`);
+            if (commentsDiv.is(':visible')) {
+                commentsDiv.hide();
+            } else {
+                let commentsHtml = '';
+                issues[index].comments.forEach(comment => {
+                    commentsHtml += `<div class="comment-box">${comment}</div>`;
+                });
+                commentsHtml += `
+                    <input type="text" class="form-control" id="comment-input-${index}" placeholder="Add a comment...">
+                    <button class="btn btn-info mt-2" onclick="addComment(${index})">Post Comment</button>
+                `;
+                commentsDiv.html(commentsHtml);
+                commentsDiv.show();
+            }
+        }
+
+        function addComment(index) {
+            const commentInput = $(`#comment-input-${index}`).val().trim();
+            if (commentInput) {
+                issues[index].comments.push(commentInput);
+                showComments(index);
+                loadSupportList();
+            }
+        }
+
+        $(document).ready(function() {
+            loadSupportList();
+        });
+    </script>
+</body>
+</html>

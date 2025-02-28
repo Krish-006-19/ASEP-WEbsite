@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="ASEP.css">
+    <link rel="stylesheet" type="text/css" href="ASEP2.css">
+    <link rel="stylesheet" type="text/css" href="ASEPSTATUS.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VIEW STATUS</title>
+</head>
+<body>
+    <div class="header">
+        <p align="center" class="s11">A modern website for unsolved government greviances & Public greviances</p>
+    <div class="d">
+    <div class="d1"><img class="d11" src="ISSUEPOST.png"></div>
+    <div class="d2">
+        <div class="f">
+        <div class="d21"><p class="d211">ISSUEPOST</p></div>
+        <div class="d22"><p> </p></div>
+    </div>
+        <div class="d23"><p class="d221"> Unseeking Public Grievance And Monitoring System</p></div>
+    </div>
+    </div>
+        <div class="t">
+        <div class="t1"><a href="ASEPAPPEAL.html"><button class="t45"><p>Appeal Status</p></button></a></div>
+
+        <div class="t3"><a href="ASEPRATEUS.html"><button class="t31"><p>Rate Us</p></button></a></div>
+        <div class="t5"><a href="communitysupport.html"><button class="t51"><p class="t511">Support</p></button></a></div>
+        <div class="t4"><a href="ASEPSIGNIN.html"><button class="t41">Sign In</button></a></div>
+    </div>
+</div>
+    <!--<div class="STATUS">
+        <div class="st1"><p align="center" class="st11">View Status</p></div>
+        <div class="st2">
+            <div class="st21"><p class="st211">Registration number</p></div>
+            <div class="st22"><input class="st221"></div>
+        </div>
+        <div class="st3">
+            <div class="st31"><p class="st311">Email id or Mobile number</p></div>
+            <div class="st32"><input class="st321"></div>
+        </div>
+        <div class="st4">
+            <div class="st41"><p class="st411">Security Code</p></div>
+            <div class="st42"><input class="st421"></div>
+        </div>
+        <div class="st5"><button class="st51"><p class="st511">Submit</p></button></div>
+    </div>-->
+    <div class="status-container">
+        <h2>View Status</h2>
+        <form action="/view-status" method="POST">
+            <div class="input-group">
+                <label for="mobile">Mobile Number</label>
+                <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required pattern="[0-9]{10}">
+            </div>
+            <div class="input-group">
+                <label for="registrationNumber">Registration Number</label>
+                <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter your registration number" required pattern="[A-Za-z0-9]{6,12}">
+            </div>
+            <div class="input-group">
+                <label for="securityCode">Security Code</label>
+                <input type="text" id="securityCode" name="securityCode" placeholder="Enter security code" required pattern="[0-9]{6}">
+            </div>
+            <div class="input-group">
+                <input type="submit" value="View Status">
+            </div>
+        </form>
+    </div>
+    <div class="bottom">
+        <div class="b2">
+            <div class="b21">
+                <div class="b211"><a href="https://www.facebook.com/DARPGIndia/"><img class="b2111" src="f.png"></a></div>
+                <div class="b212"><a href="https://x.com/DARPG_GoI"><img class="b2121" src="x.png"></a></div>
+                <div class="b213"><a href="https://www.youtube.com/@darpg5380"><img class="b2131" src="yt.png"></a></div>
+            </div>
+            <div class="b22"><p align="Center" class="b221">This site is designed, developed by GROUP 13@RNRK.</p></div>
+        </div>
+    </div>
+    <script src="ASEP.js"></script>
+</body>
+</html>

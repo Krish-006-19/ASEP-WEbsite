@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IssuePost - Public Review</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, #7bbe83, #68c3da);
+            font-family: Arial, sans-serif;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 2rem;
+            color: #fff;
+            margin-bottom: 30px;
+        }
+        .card {
+            margin: 20px 0;
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease-in-out;
+            background-color: #ffffff;
+        }
+        .card:hover {
+            transform: scale(1.02);
+        }
+        .solved {
+            background-color: #d4edda;
+            border-left: 5px solid #28a745;
+        }
+        .btn-success, .btn-primary {
+            border-radius: 50px;
+            padding: 10px 20px;
+        }
+        .form-group textarea, .form-group input {
+            border-radius: 10px;
+        }
+        @media (max-width: 576px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center"><b>RAISED PUBLIC ISSUES</b></h2>
+        <div id="issue-list"></div>
+        <form id="issue-form" class="my-4">
+            <div class="form-group">
+                <label for="new-issue">Raise a New Issue:</label>
+                <textarea class="form-control" id="new-issue" rows="3" placeholder="Describe the issue..."></textarea>
+            </div>
+            <div class="form-group">
+                <label for="user-name">Your Name:</label>
+                <input type="text" class="form-control" id="user-name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="user-address">Your Address:</label>
+                <input type="text" class="form-control" id="user-address" placeholder="Enter your address">
+            </div>
+            <button type="button" class="btn btn-primary" id="submit-issue">Post Issue</button>
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            function loadIssues() {
+                let issues = JSON.parse(localStorage.getItem("issues")) || [];
+                $('#issue-list').html('');
+                issues.forEach((issue, index) => {
+                    $('#issue-list').append(`
+                        <div class="card ${issue.solved ? 'solved' : ''}" data-index="${index}">
+                            <div class="card-body">
+                                <h5 class="card-title">${issue.title}</h5>
+                                <p class="card-text">${issue.description}</p>
+                                <p><strong>Raised by:</strong> ${issue.name}, ${issue.address}</p>
+                                ${issue.solved ? '<span class="badge badge-success">Solved</span>' : '<button class="btn btn-success solve-btn">Mark as Solved</button>'}
+                            </div>
+                        </div>
+                    `);
+                });
+            }
+
+            function saveIssues(issues) {
+                localStorage.setItem("issues", JSON.stringify(issues));
+            }
+
+            $('#submit-issue').click(function() {
+                const issueText = $('#new-issue').val().trim();
+                const userName = $('#user-name').val().trim();
+                const userAddress = $('#user-address').val().trim();
+                
+                if (issueText && userName && userAddress) {
+                    let issues = JSON.parse(localStorage.getItem("issues")) || [];
+                    issues.push({ title: "New Issue", description: issueText, name: userName, address: userAddress, solved: false });
+                    saveIssues(issues);
+                    loadIssues();
+                    $('#new-issue').val('');
+                    $('#user-name').val('');
+                    $('#user-address').val('');
+                }
+            });
+
+            $('#issue-list').on('click', '.solve-btn', function() {
+                let card = $(this).closest('.card');
+                let index = card.data('index');
+                let issues = JSON.parse(localStorage.getItem("issues"));
+                issues[index].solved = true;
+                saveIssues(issues);
+                loadIssues();
+            });
+
+            loadIssues();
+        });
+    </script>
+</body>
+</html>
