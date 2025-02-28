@@ -22,7 +22,7 @@
     </div>
     </div>
         <div class="t">
-        <div class="t1"><a href="ASEPAPPEAL.html"><button class="t45"><p>Appeal Status</p></button></a></div>
+        <div class="t1"><a href="ASEPSTATUS.html"><button class="t45"><p>Appeal Status</p></button></a></div>
 
         <div class="t3"><a href="ASEPRATEUS.html"><button class="t31"><p>Rate Us</p></button></a></div>
         <div class="t5"><a href="communitysupport.html"><button class="t51"><p class="t511">Support</p></button></a></div>
@@ -47,7 +47,7 @@
     </div>-->
     <div class="status-container">
         <h2>View Status</h2>
-        <form action="/view-status" method="POST">
+        <form id="statusForm" method="POST">
             <div class="input-group">
                 <label for="mobile">Mobile Number</label>
                 <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" required pattern="[0-9]{10}">
@@ -76,5 +76,13 @@
         </div>
     </div>
     <script src="ASEP.js"></script>
+    <script>
+        document.getElementById("statusForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent the default form submission
+        
+        // Redirect to the appeal-status page
+        window.location.href = "ASEPAPPEAL.html";
+    });
+    </script>
 </body>
 </html>
